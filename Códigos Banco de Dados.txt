@@ -1,0 +1,149 @@
+import * as SQLite from 'expo-sqlite';
+
+const db = SQLite.openDatabase("agenda.db");
+
+const App = () => {
+  const [cep, setCep] = useState("");
+  const [rua, setRua] = useState("");
+  const [complemento, setComplemento] = useState("");
+  const [bairro, setBairro] = useState("");
+  const [cidade, setCidade] = useState("");
+  const [estado, setEstado] = useState("");
+  const [enderecos, setEnderecos] = useState([]);
+
+  const createTables = () => {
+    db.transaction(txn => {
+      txn.executeSql(
+        `CREATE TABLE IF NOT EXISTS enderecos (id INTEGER PRIMARY KEY AUTOINCREMENT, cep VARCHAR(9), rua VARCHAR(100), complemento VARCHAR(100), bairro VARCHAR(100), cidade VARCHAR(100), estado VARCHAR(50))`,
+        [],
+        (sqlTxn, res) => {
+          console.log("Tabela criada com sucesso!");
+        },
+        error => {
+          console.log("error on creating table " + error.message);
+        },
+      );
+    });
+  };
+
+  const incluirEndereco = () => {
+    if (!cep || !rua || !complemento || !bairro || !cidade || !estado) {
+      alert("Preencha todos os campos");
+      return false;
+    }
+    db.transaction(txn => {
+      txn.executeSql(
+        `INSERT INTO enderecos (cep, rua, complemento, bairro, cidade, estado) VALUES (?,?,?,?,?,?)`,
+        [produto, quantidade],
+        (sqlTxn, res) => {
+          console.log(`Endereço adicionado com sucesso!`);
+          getEnderecos();
+        },
+        error => {
+          console.log("Erro ao inserir um Endereço " + error.message);
+        },
+      );
+    });
+  };
+
+const removerEndereco = (id) => {
+    db.transaction(txn => {
+      txn.executeSql(
+        `DELETE FROM enderecos WHERE id = ?`,
+        [id],
+        (sqlTxn, res) => {
+          console.log(`Endereço removido com sucesso!`);
+          getEnderecos();
+        },
+        error => {
+          console.log("Erro ao remover um Endereço " + error.message);
+        },
+      );
+    });
+  };
+
+  const getEnderecos = () => {
+    db.transaction(txn => {
+      txn.executeSql(
+        `SELECT * FROM enderecos ORDER BY id DESC`,
+        [],
+        (sqlTxn, res) => {
+          console.log("Endereços lidos com sucesso!");
+          let len = res.rows.length;
+          if (len >= 0) {
+            let results = [];
+            for (let i = 0; i < len; i++) {
+              let item = res.rows.item(i);
+              results.push({ id: item.id, cep: item.cep, rua: item.rua, complemento: item.complemento, bairro: item.bairro, cidade: item.cidade, estado: item.estado});
+            }
+            setEnderecos(results);
+          }
+        },
+        error => {
+          console.log("Erro ao obter Endereços " + error.message);
+        },
+      );
+    });
+  };
+
+
+  useEffect(async () => {
+    await createTables();
+    await getEnderecos();
+  }, []);
+
+  const renderEnderecos = ({ item }) => {
+    return (
+      <View style={{
+        flexDirection: "row",
+        paddingVertical: 12,
+        paddingHorizontal: 10,
+        borderBottomWidth: 1,
+        borderColor: "#ddd",
+        justifyContent:"space-between"
+      }}>
+        <View style={{flexDirection:"row"}}>
+          <Text style={{ marginRight: 9 }}>{item.nome}</Text>
+          <Text> ({item.quantidade})</Text>
+        </View>
+          <TouchableOpacity onPress={() => removerProduto(item.id)}>
+            <FontAwesome name='minus' size={23} color='black' />
+          </TouchableOpacity>
+      </View>
+    );
+  };
+
+  return (
+    <View>
+      <StatusBar backgroundColor="#222" />
+      <Text style={{borderBottomWidth: 1, marginTop: 30, textAlign: "center", fontSize:22}}>Compras</Text>
+      <View style={{flexDirection:"row", justifyContent:"space-between", borderBottomWidth: 1}}>
+        <TextInput
+          placeholder="Quantidade "
+          keyboardType="number-pad"
+          value={quantidade}
+          onChangeText={setQuantidade}
+          style={{ marginHorizontal: 4, borderRightWidth: 1}}
+        />
+        <TextInput
+          placeholder="Informe um Produto"
+          value={produto}
+          onChangeText={setProduto}
+        />
+        <View style={{borderLeftWidth: 1}}>
+          <TouchableOpacity onPress={incluirProduto}>
+            <FontAwesome style={{}} name='plus' size={33} color='black'/>
+          </TouchableOpacity>
+        </View>
+      </View>
+      <FlatList
+        data={compras}
+        renderItem={renderProdutos}
+        key={t => t.id}
+      />
+    </View>
+  );
+};
+
+
+export default App;
