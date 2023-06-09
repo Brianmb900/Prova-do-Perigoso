@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "react-native-paper": "4.9.2",
+    "@expo/vector-icons": "^13.0.0",
+    "expo-constants": "~14.0.2",
+    "expo-sqlite": "~11.0.0",
+    "react-native-vector-icons/FontAwesome": "*",
+    "react-native-vector-icons": "9.2.0",
+    "react-native-vector-icons/Feather": "*"
+  }
+}
