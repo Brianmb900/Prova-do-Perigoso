@@ -20,7 +20,7 @@ Aplicativo que atua como substituto para uma agenda de endereços.
 <img src="https://raw.githubusercontent.com/Brianmb900/Prova-do-Perigoso/master/assets/Wireframe%20Perigoso.png">
 
 <h2 align="center"> Instalação Local </h2>
-Para executar o projeto localmento você pode utilizar o <a href="https://snack.expo.dev/">Snack<a>, estando no Snack, basta clicar no 3 pontos na seção projeto, depois em "Import git repository", colocar a url desta página e importar, após isto basta gera o QR e escanea-lo utilizando o app do <a href="https://play.google.com/store/apps/details?id=host.exp.exponent&hl=pt_BR&gl=US&pli=1">Expo<a>.
+Para executar o projeto localmento você pode utilizar o <a href="https://snack.expo.dev/">Snack<a>, estando no Snack, basta clicar no 3 pontos na seção projeto, depois em "Import git repository", colocar a url desta página e importar, após isto basta gera o QR Code e escaneá-lo utilizando o app do <a href="https://play.google.com/store/apps/details?id=host.exp.exponent&hl=pt_BR&gl=US&pli=1">Expo<a>.
 
 <h2 align="center"> Construído Com </h2>
 
