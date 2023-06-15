@@ -26,7 +26,7 @@ Para executar o projeto localmento você pode utilizar o <a href="https://snack.
 
 * JavaScript
 * SQL
-<h2 align="center"> Linguagens e Ferramentas
+<h2 align="center"> Ferramentas
 
 #### Servidor de base de dados
 
