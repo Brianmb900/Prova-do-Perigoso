@@ -1,4 +1,4 @@
-<h1 align="center"> IRotas: Encontre sua autoescola </h1>
+<h1 align="center"> Minha Agenda de Endereços </h1>
 
 <h2 align="center"> Descrição </h2>
 
@@ -9,13 +9,12 @@ Aplicativo que atua como substituto para uma agenda de endereços.
 ### CRUD de Endereços:
 
 * Identificação
-* Administrador: 0 / 1 (Não/Sim)
-* Nome
-* E-mail
-* Senha
-* Telefone
-* Data de Nascimento
-* Sexo: M / F
+* CEP
+* Rua
+* Complemento
+* Bairro
+* Cidade
+* Estado
 
 <h2 align="center"> Instalação Local </h2>
 
