@@ -19,7 +19,7 @@ Aplicativo que atua como substituto para uma agenda de endereços.
 
 <h2 align="center"> Instalação Local </h2>
 
-Para executar o projeto localmento você pode utilizar o [Snack](https://snack.expo.dev/), estando no Snack, basta clicar no 3 pontos, nas seção projeto, depois em "Import git repository", colocar a url desta página e importar, após isto basta gera o QR e escanea-lo utilizando o app do [Expo](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=pt_BR&gl=US&pli=1).
+Para executar o projeto localmento você pode utilizar o [Snack](https://snack.expo.dev/), estando no Snack, basta clicar no 3 pontos na seção projeto, depois em "Import git repository", colocar a url desta página e importar, após isto basta gera o QR e escanea-lo utilizando o app do [Expo](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=pt_BR&gl=US&pli=1).
 
 <h2 align="center"> Construído Com </h2>
 
