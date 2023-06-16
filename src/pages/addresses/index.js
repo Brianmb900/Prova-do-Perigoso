@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { View, Text, StatusBar, FlatList, TouchableOpacity, StyleSheet} from "react-native";
+import { View, Text, StatusBar, FlatList, TouchableOpacity, StyleSheet, Image} from "react-native";
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import * as SQLite from 'expo-sqlite';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Addresses(){
 
@@ -94,7 +95,7 @@ const removerEndereco = (id) => {
   const getEnderecos = () => {
     db.transaction(txn => {
       txn.executeSql(
-        `SELECT * FROM enderecos ORDER BY id DESC`,
+        `SELECT * FROM enderecos ORDER BY id`,
         [],
         (sqlTxn, res) => {
           console.log("Endereços lidos com sucesso!");
@@ -115,6 +116,14 @@ const removerEndereco = (id) => {
     });
   };
 
+const navigation = useNavigation();
+
+  function irVer(id){
+      navigation.navigate('Ver/Alterar', { alterar: 0, id: id});
+  }
+  function irAlterar(id){
+      navigation.navigate('Ver/Alterar', { alterar: 1, id: id});
+  }
 
   useEffect(async () => {
     await createTables();
@@ -138,13 +147,13 @@ const removerEndereco = (id) => {
           <Text style={styles.exibir}> - {item.cidade}</Text>
         </View>
         <View style={{borderLeftWidth: 1, flexDirection:"row"}}>
-          <TouchableOpacity onPress={() => removerEndereco(item.id)}>
+          <TouchableOpacity style={{marginLeft:2}} onPress={() => removerEndereco(item.id)}>
             <FontAwesome name='minus' size={23} color='black' />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => removerEndereco(item.id)}>
+          <TouchableOpacity onPress={() => irAlterar(item.id)}>
             <FontAwesome name='pencil' size={23} color='black' />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => removerEndereco(item.id)}>
+          <TouchableOpacity onPress={() => irVer(item.id)}>
             <FontAwesome name='book' size={23} color='black' />
           </TouchableOpacity>
         </View>
@@ -154,8 +163,11 @@ const removerEndereco = (id) => {
 
   return (
     <View>
-      <StatusBar backgroundColor="#222" />
-      <Text style={{borderBottomWidth: 1, marginTop: 30, textAlign: "center", fontSize:22}}>Meus Endereços</Text>
+      <Text style={{marginTop: 60, textAlign: "center", fontSize:30, fontWeight: 'bold'}}>Meus Endereços</Text>
+      <Image 
+        source={require('../../../assets/Agenda2.png')}
+        style={{ width: 200, height: 200, marginLeft: 90, marginTop: 60, marginBottom: 60}}
+      />
       <View style={{flexDirection:"row", justifyContent:"space-between", borderBottomWidth: 1}}>
       </View>
       <FlatList

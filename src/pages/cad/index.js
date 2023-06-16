@@ -14,8 +14,7 @@ export default function Cad(){
 
   return(
     <View>
-      <Text>Home</Text>
-      <Text>Bem vindo a tela Home!</Text>
+      <Text style={{marginTop:30}}>Sexo Virtual - Cadastro Manual!</Text>
       <Button
       title="Ir para tela Endereços"
       onPress={irSobre}

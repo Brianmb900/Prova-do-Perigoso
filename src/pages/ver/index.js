@@ -3,7 +3,7 @@ import { View, Text, Button } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 
-export default function Cep(){
+export default function Ver({route}){
   const navigation = useNavigation();
 
 
@@ -14,7 +14,9 @@ export default function Cep(){
 
   return(
     <View>
-      <Text style={{marginTop:30}}>Sexo Virtual - Cadastro Via CEP!</Text>
+    {route.params?.alterar == 0?<Text style={{marginTop:30, color: 'green', fontSize: 30}}>Ver!</Text>:<Text style={{marginTop:30, color: 'red', fontSize: 30}}>Alterar!</Text>}
+      <Text style={{marginTop:30, fontSize:30}}>{route.params?.alterar}</Text>
+      <Text style={{marginTop:30, fontSize:60, color: 'purple'}}>{route.params?.id}</Text>
       <Button
       title="Ir para tela Endereços"
       onPress={irSobre}
