@@ -28,8 +28,8 @@ const icons = {
 function Inicio(){
   return(
       <Stack.Navigator>
-        <Stack.Screen options={{headerShown: false}} name="Inicio" component={Cep} />
-        <Stack.Screen options={{headerShown: false}} name="Cadastro2" component={Cad} />
+        <Stack.Screen options={{headerShown: false}} name="Inicio" component={Cad} />
+        <Stack.Screen options={{headerShown: false}} name="Cadastro2" component={Cep} />
       </Stack.Navigator>
   );
 }

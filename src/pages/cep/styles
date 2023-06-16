@@ -1,0 +1,34 @@
+import {StyleSheet} from 'react-native';
+
+
+const styles = StyleSheet.create({
+   titulo:{
+    marginTop: 15,
+    fontSize:25,
+    color: 'red'
+  },
+  busca:{
+    flexDirection: 'row'
+  },
+  container:{
+    marginTop: 60,
+    alignItems: 'center'
+  },
+  box:{
+      width: 320,
+  },
+  cep:{
+    width: 280,
+    height: 40,
+    borderColor: '#000',
+    borderWidth: 1,
+    padding: 10,
+  },
+    botao:{
+    marginTop: 40,
+    alignItems: 'center'
+  },
+});
+
+
+  export {styles};

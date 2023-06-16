@@ -3,6 +3,7 @@ import { useAsyncStorage } from '@react-native-async-storage/async-storage';
 import { View, Text, Button, TextInput, StyleSheet} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import api from './api'
+import { styles } from './styles';
 
 export default function Cep(){
   const navigation = useNavigation();
@@ -54,7 +55,7 @@ function entrar() {
         
       
 
-      <Text style={styles.titulo}>Cadastro Via CEP!</Text>
+      <Text style={styles.titulo}>Cadastro Via CEP</Text>
 
             <View style={styles.container}>
         <View style={styles.busca}>
@@ -97,31 +98,3 @@ function entrar() {
   )
 }
 
-const styles = StyleSheet.create({
-   titulo:{
-    marginTop: 15,
-    fontSize:25,
-    color: 'red'
-  },
-  busca:{
-    flexDirection: 'row'
-  },
-  container:{
-    marginTop: 60,
-    alignItems: 'center'
-  },
-  box:{
-      width: 320,
-  },
-  cep:{
-    width: 280,
-    height: 40,
-    borderColor: '#000',
-    borderWidth: 1,
-    padding: 10,
-  },
-    botao:{
-    marginTop: 40,
-    alignItems: 'center'
-  },
-});
