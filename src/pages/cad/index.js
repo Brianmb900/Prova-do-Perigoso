@@ -1,11 +1,10 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, TextInput } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 
 export default function Cad(){
   const navigation = useNavigation();
-
 
   function irSobre(){
       navigation.navigate('Endereços');
@@ -14,8 +13,7 @@ export default function Cad(){
 
   return(
     <View>
-      <Text>Home</Text>
-      <Text>Bem vindo a tela Home!</Text>
+      <Text style={{marginTop:30}}>Sexo Virtual - Cadastro Manual!</Text>
       <Button
       title="Ir para tela Endereços"
       onPress={irSobre}

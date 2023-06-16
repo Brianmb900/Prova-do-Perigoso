@@ -8,6 +8,7 @@ import Home from './src/pages/home';
 import Cep from './src/pages/cep';
 import Cad from './src/pages/cad'
 import Addresses from './src/pages/addresses';
+import Ver from './src/pages/ver';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -27,8 +28,17 @@ const icons = {
 function Inicio(){
   return(
       <Stack.Navigator>
-        <Stack.Screen options={{headerShown: false}} name="Inicio" component={Home} />
+        <Stack.Screen options={{headerShown: false}} name="Inicio" component={Cep} />
         <Stack.Screen options={{headerShown: false}} name="Cadastro2" component={Cad} />
+      </Stack.Navigator>
+  );
+}
+
+function Endereços(){
+  return(
+      <Stack.Navigator>
+        <Stack.Screen options={{headerShown: false}} name="Endereços2" component={Addresses} />
+        <Stack.Screen options={{headerShown: false}} name="Ver/Alterar" component={Ver} />
       </Stack.Navigator>
   );
 }
@@ -44,8 +54,8 @@ export default function App(){
       })
       }>
           <Tab.Screen options={{headerShown: false}} name="Home" component={Inicio} />
-          <Tab.Screen options={{headerShown: false}} name="Cadastrar" component={Cep} />
-          <Tab.Screen options={{headerShown: false}} name="Endereços" component={Addresses} />
+          <Tab.Screen options={{headerShown: false}} name="Cadastrar" component={Addresses} />
+          <Tab.Screen options={{headerShown: false}} name="Endereços" component={Endereços} />
         </Tab.Navigator>
       </NavigationContainer>
       
